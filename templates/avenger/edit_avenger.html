@@ -1,0 +1,46 @@
+{%extends "layout.html"%}
+{%block title%}Editar avenger{%endblock%}
+
+{% block body%}
+<h3 class="text-center my-4">Editar Avenger</h3>
+<div class="d-flex justify-content-center">
+    <form action="{{url_for('avenger_bp.edit_avenger',id = avenger.id)}}" method="POST">
+        <div class="mb-3">
+            <label for="nombre" class="form-label"
+            > Nombre</label>
+            <input
+            type="text"
+            name="nombre"
+            class="form-control"
+            value="{{ avenger.nombre }}"
+            />
+        </div>
+        <div class="mb-3">
+            <label for="alias" class="form-label">Alias</label>
+            <input
+            type="text"
+            name="aias"
+            class="form-control"
+            value="{{ avenger.alias }}"
+            />
+        </div>
+        <div>
+            <label for="habilidades" class="form-label">habilidades</label>
+            <textarea name="habilidades"
+            class="form-control"
+            >{{avenger.habilidades}}</textarea>
+        </div>
+        <div>
+            <label for="actor" class="form-label">Actor</label>
+            <input
+            type="text"
+            name="actor"
+            class="form-control"
+            value="{{ avenger.actor }}"
+            />
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        <a href="{{url_for('avenger_bp.get_avenger')}}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{%endblock%}

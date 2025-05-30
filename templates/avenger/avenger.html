@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{%block title%}APP Prueba{% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-5 p-5">
+        <h4>Nuevo Avenger</h4>
+        {%include "avenger/add_avenger.html"%}
+    </div>
+    <div class="col-md-7 p-4">
+        <h4>Lista de agentes</h4>
+        <table class="table table-bordered table-hover">
+            <thead class="table-info">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Alias</th>
+                    <th>Habilidades</th>
+                    <th>actor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for a in avengers%}
+                <tr>
+                    <td>{{ a.nombre}}</td>
+                    <td>{{ a.alias }}</td>
+                    <td>{{ a.habilidades }}</td>
+                    <td> {{a.actor}}</td>
+                    <td>
+                        <a href="{{url_for('avenger_bp.edit_avenger',id = a.id)}}"
+                        class="btn btn-warning btn-sm"
+                        >Editar</a>
+                        <form action="{{url_for('avenger_bp.delete_avenger',id = a.id)}}"
+                        method="POST"
+                        style="display:inline-block"
+                        onsubmit="return confirm('¿seguro que quiere eliminar este agente?')">
+                            <button type="submit" class="btn btn-sm btn-danger "> Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}

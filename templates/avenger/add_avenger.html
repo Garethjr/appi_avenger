@@ -1,0 +1,25 @@
+<form action="{{url_for('avenger_bp.add_avenger')}}"
+method="POST"
+class="border p-4 rounded bg-white"
+>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="alias">Alias</label>
+        <input type="text" name="alias" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="habilidades" class="form-label">Habilidades</label>
+        <textarea
+        name="habilidades"
+        class="form-control"
+        ></textarea>
+    </div>
+    <div class="mb-3" >
+        <label for="actor" class="form-label">Actor</label>
+        <input type="text" name="actor" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
